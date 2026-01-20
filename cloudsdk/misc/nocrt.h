@@ -12,6 +12,14 @@ namespace nocrt {
 		return ptr;
 	}
 
+	__forceinline size_t __strlen(const char* str)
+	{
+		const char* s = str;
+		while (*s)
+			++s;
+		return (size_t)(s - str);
+	}
+
 	__forceinline void* __memcpy(void* destination, const void* source, size_t num)
 	{
 		unsigned char* dest = (unsigned char*)destination;

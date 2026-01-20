@@ -100,6 +100,7 @@ namespace windows {
 		}
 		return false;
 		// return IsWindows10OrGreater(); // i love when winapi functions js dont work </3
+		// the reason why is there has to be some file manifest or some bullshit. so we just GetProcAddress from ntdll
 		// https://learn.microsoft.com/en-us/windows/win32/api/versionhelpers/nf-versionhelpers-iswindows10orgreater
 	}
 }

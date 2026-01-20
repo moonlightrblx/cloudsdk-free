@@ -3,7 +3,7 @@
 
 struct config_t {
 
-	const char* dev_usernames[3] = { "Cxfd", "conspiracy", "username" }; // remove all of these and add ur windows user :D (check custom.h)
+	const char* dev_usernames[2] = { "Cxfd", "conspiracy" }; // remove all of these and add ur windows user :D (check custom.h)
 	constexpr static uintptr_t xor_key = 0x000000babe; // change per project
 
 };

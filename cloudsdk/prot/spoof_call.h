@@ -3,16 +3,21 @@
 #include <utility>
 #include  <Intrin.h> 
 #include "../globals.h"
+#include "../misc/nocrt.h"
 
 
 // i honestly forget which project this is taken from but i removed all kernel shit and made it safer
 // its easier to use my other kernel lib for this aswell.
+
 #define SPOOF_FUNC CallSpoofer::SpoofFunction spoof(_AddressOfReturnAddress());
+// spoof the return address of a given function
+
+// spoof call a specific function
 #define SPOOF_CALL(name) (CallSpoofer::SafeCall(name))
 
 constexpr int MAX_FUNC_BUFFERED = 100;
 constexpr int SHELLCODE_GENERATOR_SIZE = 500;
-// todo: recode.
+
 namespace CallSpoofer
 {
 	class SpoofFunction
@@ -40,7 +45,7 @@ namespace CallSpoofer
 		void* addr = VirtualAlloc(NULL, size, MEM_COMMIT, PAGE_EXECUTE_READWRITE);
 		if (!addr)
 			return nullptr;
-		return custom::__memcpy(addr, func, size);
+		return nocrt::__memcpy(addr, func, size);
 	}
 
 	template <typename Func, typename ...Args>
@@ -121,7 +126,8 @@ namespace CallSpoofer
 
 			if (!p_shellcode)
 			{
-				//DbgPrint("!p_shellcode");
+				// printf("!p_shellcode\n");
+				//DbgPrintEx(0,0,"!p_shellcode");
 			}
 
 			return p_shellcode(funcPtr, args...);

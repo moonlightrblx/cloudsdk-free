@@ -44,5 +44,14 @@
     <ClInclude Include="cloudsdk\prot\spoof_call.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="cloudsdk\mem\sigscan.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cloudsdk\mem\memcum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cloudsdk\windows\function_resolver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

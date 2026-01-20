@@ -46,7 +46,7 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -135,10 +135,13 @@
     <ClInclude Include="cloudsdk\custom.h" />
     <ClInclude Include="cloudsdk\globals.h" />
     <ClInclude Include="cloudsdk\include.h" />
+    <ClInclude Include="cloudsdk\mem\memcum.h" />
+    <ClInclude Include="cloudsdk\mem\sigscan.h" />
     <ClInclude Include="cloudsdk\misc\nocrt.h" />
     <ClInclude Include="cloudsdk\prot\spoof_call.h" />
     <ClInclude Include="cloudsdk\prot\xor.h" />
     <ClInclude Include="cloudsdk\windows\defs.h" />
+    <ClInclude Include="cloudsdk\windows\function_resolver.h" />
     <ClInclude Include="cloudsdk\windows\windows.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
