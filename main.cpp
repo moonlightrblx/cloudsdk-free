@@ -6,6 +6,8 @@
 // example cloudsdk showcase :D
 auto __stdcall DllMain(HINSTANCE dll, DWORD reason, LPVOID) -> int
 {
+	SPOOF_FUNC; // spoofs the return address of the function :D
+
 	// this will find the stringref in ANY ue game with no string encryption or weird protections.
 	AllocConsole();
 	freopen("CONIN$", "r", stdin);

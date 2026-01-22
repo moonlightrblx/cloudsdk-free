@@ -18,7 +18,7 @@
 #include <iostream>
 #include <array>
 #include <map>
-
+#include "../asm/asm.h"
 #define MemcuryAssert(cond)                                              \
         if (!(cond))                                                         \
         {                                                                    \
@@ -89,7 +89,7 @@ namespace Memcury
 		inline auto CopyToClipboard(std::string str)
 		{
 			auto mem = GlobalAlloc(GMEM_FIXED, str.size() + 1);
-			memcpy(mem, str.c_str(), str.size() + 1);
+			nocrt::__memcpy(mem, str.c_str(), str.size() + 1);
 
 			OpenClipboard(nullptr);
 			EmptyClipboard();
@@ -117,7 +117,7 @@ namespace Memcury
 		static auto PrintStack(CONTEXT* ctx) -> void
 		{
 			STACKFRAME64 stack;
-			memset(&stack, 0, sizeof(STACKFRAME64));
+			nocrt::__memset(&stack, 0, sizeof(STACKFRAME64));
 
 			auto process = GetCurrentProcess();
 			auto thread = GetCurrentThread();
@@ -368,7 +368,8 @@ namespace Memcury
 
 		inline auto GetModuleBase() -> uintptr_t
 		{
-			return reinterpret_cast<uintptr_t>(GetModuleHandleA(Globals::moduleName));
+			return ::ASM::get_base();
+			// return reinterpret_cast<uintptr_t>(GetModuleHandleA(Globals::moduleName));
 		}
 
 		inline auto GetDOSHeader() -> PIMAGE_DOS_HEADER

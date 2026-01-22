@@ -1,7 +1,7 @@
 #pragma once
 #include <cstdint>
 #include <ctype.h>
-
+// todo: add more c functions cause yea..
 namespace nocrt {
 	__forceinline void* __memset(void* ptr, int value, size_t num) // yes this is pasted 100% from cons :3
 	{
@@ -28,6 +28,15 @@ namespace nocrt {
 			dest[i] = src[i];
 		}
 		return destination;
+	}
+	__forceinline void* __memset(void* ptr, uint8_t value, size_t num)
+	{
+		auto* p = static_cast<uint8_t*>(ptr);
+		for (size_t i = 0; i < num; ++i)
+		{
+			p[i] = value;
+		}
+		return ptr;
 	}
 
 	__forceinline bool memcmp(const void* a, const void* b, size_t size)

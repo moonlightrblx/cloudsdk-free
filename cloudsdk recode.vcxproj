@@ -54,6 +54,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
   </ImportGroup>
   <ImportGroup Label="Shared">
   </ImportGroup>
@@ -132,9 +133,11 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cloudsdk\asm\asm.h" />
     <ClInclude Include="cloudsdk\custom.h" />
     <ClInclude Include="cloudsdk\globals.h" />
     <ClInclude Include="cloudsdk\include.h" />
+    <ClInclude Include="cloudsdk\mem\hooking.h" />
     <ClInclude Include="cloudsdk\mem\memcum.h" />
     <ClInclude Include="cloudsdk\mem\sigscan.h" />
     <ClInclude Include="cloudsdk\misc\nocrt.h" />
@@ -144,7 +147,13 @@
     <ClInclude Include="cloudsdk\windows\function_resolver.h" />
     <ClInclude Include="cloudsdk\windows\windows.h" />
   </ItemGroup>
+  <ItemGroup>
+    <MASM Include="cloudsdk\asm\asm.asm">
+      <FileType>Document</FileType>
+    </MASM>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
   </ImportGroup>
 </Project>

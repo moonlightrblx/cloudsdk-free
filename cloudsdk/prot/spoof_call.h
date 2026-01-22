@@ -60,19 +60,19 @@ namespace CallSpoofer
 
 		void* ret_addr_in_stack = _AddressOfReturnAddress();
 		uintptr_t temp = *(uintptr_t*)ret_addr_in_stack;
-		temp ^= SECURITY_KEY;
+		temp ^= g_cfg->xor_key;
 		*(uintptr_t*)ret_addr_in_stack = 0;
 
 		if constexpr (std::is_same<return_type, void>::value)
 		{
 			f(args...);
-			temp ^= SECURITY_KEY;
+			temp ^= g_cfg->xor_key;
 			*(uintptr_t*)ret_addr_in_stack = temp;
 		}
 		else
 		{
 			return_type&& ret = f(args...);
-			temp ^= SECURITY_KEY;
+			temp ^= g_cfg->xor_key;
 			*(uintptr_t*)ret_addr_in_stack = temp;
 			return ret;
 		}

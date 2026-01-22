@@ -8,8 +8,11 @@
 #include "mem/memcum.h"
 
 #include "prot/xor.h"
+#include "prot/spoof_call.h"
 #include "windows/defs.h"
 #include "windows/windows.h"
+
+#include "asm/asm.h"
 
 
 #ifndef WIN32_LEAN_AND_MEAN

@@ -53,5 +53,16 @@
     <ClInclude Include="cloudsdk\windows\function_resolver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="cloudsdk\mem\hooking.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cloudsdk\asm\asm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="cloudsdk\asm\asm.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
   </ItemGroup>
 </Project>
