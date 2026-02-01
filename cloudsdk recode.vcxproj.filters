@@ -59,6 +59,15 @@
     <ClInclude Include="cloudsdk\asm\asm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="cloudsdk\misc\logger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cloudsdk\math\vector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cloudsdk\ue4\core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <MASM Include="cloudsdk\asm\asm.asm">
